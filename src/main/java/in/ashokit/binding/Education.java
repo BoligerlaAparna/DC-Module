@@ -2,7 +2,7 @@ package in.ashokit.binding;
 
 public class Education {
 
-private Integer eduId;
+
 	
 	private Long caseNum;
 	
@@ -10,13 +10,6 @@ private Integer eduId;
 	
 	private Integer graduationYear;
 
-	public Integer getEduId() {
-		return eduId;
-	}
-
-	public void setEduId(Integer eduId) {
-		this.eduId = eduId;
-	}
 
 	public Long getCaseNum() {
 		return caseNum;

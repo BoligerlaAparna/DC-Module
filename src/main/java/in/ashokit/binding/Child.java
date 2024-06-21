@@ -1,29 +1,35 @@
 package in.ashokit.binding;
 
+import java.time.LocalDate;
+
 public class Child {
 
-	private Integer childId;
 
 	private String childName;
 
 	private Integer childAge;
 
 	private Long childSsn;
+	
+	private LocalDate childDob;
 
-	public Integer getChildId() {
-		return childId;
-	}
-
-	public void setChildId(Integer childId) {
-		this.childId = childId;
-	}
-
+	
 	public Integer getChildDob() {
 		return childAge;
 	}
 
-	public void setChildDob(Integer childDob) {
-		this.childAge = childDob;
+	public Integer getChildAge() {
+		return childAge;
+	}
+
+	public void setChildAge(Integer childAge) {
+		this.childAge = childAge;
+	}
+
+	
+
+	public void setChildDob(LocalDate childDob) {
+		this.childDob = childDob;
 	}
 
 	public Long getChildSsn() {

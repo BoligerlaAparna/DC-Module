@@ -1,9 +1,10 @@
 package in.ashokit.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -13,11 +14,16 @@ public class DcChildren {
 
 	
 	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private Integer childId;
 	
 	private LocalDate childDob;
 	
-	private Long childSon;
+	private Long childSsn;
+	
+	private Long caseNum;
+	
+	private String childName;
 
 	public Integer getChildId() {
 		return childId;
@@ -35,25 +41,34 @@ public class DcChildren {
 		this.childDob = childDob;
 	}
 
-	public Long getChildSon() {
-		return childSon;
+	public Long getChildSsn() {
+		return childSsn;
 	}
 
-	public void setChildSon(Long childSon) {
-		this.childSon = childSon;
+	public void setChildSsn(Long childSsn) {
+		this.childSsn = childSsn;
 	}
 
-	public void save(DcChildren entity) {
-		// TODO Auto-generated method stub
-		
+	public Long getCaseNum() {
+		return caseNum;
 	}
 
-	public List<DcChildren> findByCaseNum(Long caseNum) {
-		// TODO Auto-generated method stub
-		return null;
-		
+	public void setCaseNum(Long caseNum) {
+		this.caseNum = caseNum;
 	}
 
+	public String getChildName() {
+		return childName;
+	}
+
+	public void setChildName(String childName) {
+		this.childName = childName;
+	}
+	
+
+	
+
+	
 	
 
 	

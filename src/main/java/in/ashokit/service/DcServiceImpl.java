@@ -24,12 +24,13 @@ import in.ashokit.entity.DcIncomeEntity;
 import in.ashokit.entity.PlanEntity;
 import in.ashokit.repository.CitizenAppRepository;
 import in.ashokit.repository.DcCaseRepo;
+import in.ashokit.repository.DcChildrenRepo;
 import in.ashokit.repository.DcEducationRepository;
 import in.ashokit.repository.DcIncomeRepository;
 import in.ashokit.repository.PlanRepository;
 
 @Service
-public abstract class DcServiceImpl implements DcService {
+public  class DcServiceImpl implements DcService {
 
 	@Autowired
 	private DcCaseRepo dcCaseRepo;
@@ -44,23 +45,45 @@ public abstract class DcServiceImpl implements DcService {
 	private DcEducationRepository eduRepo;
 
 	@Autowired
-	private DcChildren childRepo;
+	private DcChildrenRepo childRepo;
 
 	@Autowired
 	private CitizenAppRepository appRepo;
 
 	@Override
 	public Long loadCaseNum(Integer appId) {
-
+		Long caseNum = null ;
 		Optional<CitizenAppEntity> app = appRepo.findById(appId);
-
+	
 		if (app.isPresent()) {
+			try {  
+			DcCaseEntity byAppId = dcCaseRepo.findByAppId(appId);
+			
+		
+			 caseNum = byAppId.getCaseNum();
+				
+			}  
+				 catch (NullPointerException e) {  
+				   System.out.println("An exception occurred: " + e.getMessage());  
+				 }
+			
+			
+			
 			DcCaseEntity entity = new DcCaseEntity();
 			entity.setAppId(appId);
+
+			if(caseNum!=null) {
+				entity.setCaseNum(caseNum);
+				
+			}
+			
+			
 			entity = dcCaseRepo.save(entity);
 
 			return entity.getCaseNum();
-		}
+		
+			
+	}
 
 		return 0l;
 	}

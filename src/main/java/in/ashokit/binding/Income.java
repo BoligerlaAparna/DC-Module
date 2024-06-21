@@ -3,7 +3,7 @@ package in.ashokit.binding;
 public class Income {
 	
 	
-private Integer incomeId;
+
 	
 	private Long caseNum;
 	
@@ -11,13 +11,7 @@ private Integer incomeId;
 	
 	private Double propertyIncome;
 
-	public Integer getIncomeId() {
-		return incomeId;
-	}
-
-	public void setIncomeId(Integer incomeId) {
-		this.incomeId = incomeId;
-	}
+	
 
 	public Long getCaseNum() {
 		return caseNum;

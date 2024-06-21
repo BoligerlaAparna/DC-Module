@@ -12,19 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 import in.ashokit.binding.CreateCaseResponse;
 import in.ashokit.service.DcService;
 
+
 @RestController
 public class CreateCaseRestController {
 
 	@Autowired
 	private DcService service;
+	
 
 	@GetMapping("/case/{appId}")
 	public ResponseEntity<CreateCaseResponse> createCase(@PathVariable Integer appId)
 
 	{
 
-		Long caseNum = service.loadCaseNum(appId);
-
+		Long caseNum = service.loadCaseNum(appId);//1
+		
 		Map<Integer, String> plansMap = service.getPlanNames();
 
 		CreateCaseResponse response = new CreateCaseResponse();
